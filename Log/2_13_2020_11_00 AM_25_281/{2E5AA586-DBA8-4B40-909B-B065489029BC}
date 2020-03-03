@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="message 13">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="13"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: runBrowser Value: Chrome"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586740162"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 3">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: CollWeb Value: "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586735764"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 9">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="9"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: Dataweb Value: "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586738542"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: Tet Value: "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586735417"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="message 7">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: Excel Value: C:\Users\radhakrishnang2\Desktop\TestComplete\TestCases\Test3_clinicalTrialsBreed.xlsx"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586737384"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 11">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="11"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: environment Value: ICDCQ "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586739583"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 14">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="14"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: page Value: https://caninecommons-qa.cancer.gov/#/*"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586740278"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 15">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="15"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: objectype Value: Link"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586740393"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="child data"/>
+		<Node name="message 12">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="12"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: url Value: https://caninecommons-qa.cancer.gov/#/"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586739815"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 18">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="18"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: action Value: click"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586740856"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: ReadFromDB Value: "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586737269"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 19">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="19"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: server Value: bolt://ncias-q2251-c.nci.nih.gov/"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586740972"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 20">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="20"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: user_id Value: neo4j"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586741088"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 22">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="22"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: location_path Value: C:\Users\radhakrishnang2\Desktop\TestComplete\TestData\Test3_clinicalTrialsBreed.xlsx"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586741667"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 10">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="10"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: Datadb Value: "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586739236"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: MainExcel Value: "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586736574"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 8">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="8"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: Query Value: MATCH (s:study) WITH COLLECT(DISTINCT(s.clinical_study_designation)) AS all_studies MATCH (d:demographic) WITH COLLECT(DISTINCT(d.breed)) AS all_breeds, COLLECT(DISTINCT(d.sex)) AS all_sexes, &#xA;all_studies MATCH (d:diagnosis) WITH COLLECT(DISTINCT(d.disease_term)) AS all_diseases, all_breeds, all_sexes, all_studies MATCH (p:program)&lt;-[*]-(s:study)&lt;-[*]-(c:case)&lt;--(demo:demographic), &#xA;(c)&lt;--(diag:diagnosis) WHERE s.clinical_study_designation IN [&quot;COTC007B&quot;] and demo.breed IN [&quot;Samoyed&quot;,&quot;Mixed Breed&quot;,&quot;Golden Retriever&quot;]  OPTIONAL MATCH (f:file)-[*]-&gt;(c), (samp:sample)-[*]-&gt;(c) WITH DISTINCT c AS c, p, s, demo, diag, f, samp RETURN c.case_id AS case_id, s.clinical_study_designation AS study_code, p.program_acronym AS program, s.clinical_study_type AS study_type, demo.breed AS breed, diag.disease_term AS diagnosis, diag.stage_of_disease AS stage_of_disease, diag.primary_disease_site AS disease_site,demo.patient_age_at_enrollment AS age, demo.sex AS sex, demo.neutered_indicator AS neutered_status, COLLECT(DISTINCT(f.file_type)) AS data_types, COLLECT(DISTINCT(f.file_format)) AS file_formats, COLLECT(DISTINCT(f)) AS files,  COLLECT(DISTINCT(samp.sample_id)) as samples"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586737847"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 0" type="S" value="{0B358746-8CB0-42AA-BB67-BB4C3F1908D0}"/>
+		</Node>
+		<Node name="message 17">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="17"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: propertyvalue Value: Cases"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586740625"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Environment variables as loaded as Follows :"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="81"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586734954"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 16">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="16"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: propertyname Value: contentText"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586740509"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: ReadFromWeb Value: "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586736343"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 21">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="21"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: Password Value: icdcDBneo4j0"/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586741319"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="message" type="S" value="Variable: Test Value: "/>
+			<Prp name="as html" type="B" value="0"/>
+			<Prp name="line no" type="I" value="97"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="date" type="D" value="43874.4586735301"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="link" type="S" value=""/>
+		</Node>
+		<Prp name="status" type="I" value="0"/>
+	</Node>
+</Nodes>

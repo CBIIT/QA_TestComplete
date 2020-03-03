@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test2">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="name" type="S" value="Qa-ValidateBreedSelection"/>
+						<Prp name="duration" type="I" value="0"/>
+						<Prp name="status" type="I" value="3"/>
+						<Prp name="durationwithoutchildren" type="I" value="0"/>
+						<Prp name="starttime" type="D" value="43874.4576899769"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="Sorry, we couldn't find C:\Users\radhakrishnang2\Desktop\TestComplete\TestData\Test3_clinicalTrialsBreed.xlsx. Is it possible it was moved, renamed or deleted?"/>
+							</Node>
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The element to be run specified in the 'LoadFillterWithBreed' test item failed to run."/>
+							</Node>
+						</Node>
+						<Prp name="name" type="S" value="LoadFillterWithBreed"/>
+						<Prp name="duration" type="I" value="40254"/>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBBADEAQQBBADMARAA4ADcALQAzAEQARQAwAC0ANAAxADkAQwAtADgANgBCADgALQAzADgARgA1AEUAOQBDADUARQA3ADEAOQB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="durationwithoutchildren" type="I" value="40254"/>
+						<Prp name="starttime" type="D" value="43874.4570675347"/>
+					</Node>
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The execution process was interrupted."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+						</Node>
+						<Prp name="name" type="S" value="LoadAppFilterBreed"/>
+						<Prp name="duration" type="I" value="13523"/>
+						<Prp name="status" type="I" value="2"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewAzADcAMwBGAEIAMwA5AEIALQBEAEIANQBFAC0ANAA1ADAAMAAtAEEAQwA4AEYALQBBAEUANgAyADYAQwAwADEANAA3ADcAMgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="durationwithoutchildren" type="I" value="13523"/>
+						<Prp name="starttime" type="D" value="43874.4575334375"/>
+					</Node>
+				</Node>
+				<Prp name="incompletedtests" type="I" value="1"/>
+				<Prp name="name" type="S" value="Automated Testing"/>
+				<Prp name="duration" type="I" value="53777"/>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="failedtests" type="I" value="2"/>
+				<Prp name="starttime" type="D" value="43874.4570675347"/>
+			</Node>
+		</Node>
+		<Prp name="user" type="S" value="radhakrishnang2"/>
+		<Prp name="testname" type="S" value="Automated Testing"/>
+		<Prp name="starttime" type="D" value="43874.4570648495"/>
+		<Prp name="name" type="S" value="Canine_testing"/>
+		<Prp name="key" type="S" value="{42BCB081-425B-4E91-B1A8-797C2EA9790F}"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="incompletedtests" type="I" value="1"/>
+		<Prp name="tests" type="I" value="3"/>
+		<Prp name="stop" type="D" value="43874.4576986227"/>
+		<Prp name="host" type="S" value="NCI-02150368-L"/>
+		<Prp name="failedtests" type="I" value="2"/>
+	</Node>
+</Nodes>

@@ -1,0 +1,76 @@
+﻿' [UnitA]
+
+'USEUNIT functions
+Sub Test
+'
+'Dim CollWeb ,i ,CollDb ,Temp
+
+'Set CollWeb = AddRecord
+'Set CollDb = AddRecord
+
+ Execute "functions.Initial (  Project.Variables.Excel)"
+ Execute "functions.loadapp"
+ 'Execute "CheckBrokenLinks"
+
+ 
+ 
+ 
+' 'call FindChildAndClick(Project.Variables.runBrowser,_
+' project.Variables.url,project.Variables.page,_
+' Project.Variables.objectype, Project.Variables.action,_
+' Project.Variables.propertyvalue,Project.Variables.propertyname)
+' 
+                                               'findChild( ByRef Broswername,ByRef UrlName , ByRef Page ,ByRef ObjectName, ByRef ActionName, ByRef PropertyValue,Byref PropertyName)
+
+                                               'result = Eval("UnitB.TestFunction")
+ 
+                                              ' Project.Variables.CollWeb=  SimpleParsing ()
+                                              ' Set CollWeb = Nothing
+                                              'Set P = Sys.Browser("chrome").Page("https://caninecommons.cancer.gov/#/cases").Panel("root").Panel(2).Panel(0).Panel(3).Panel(1).Panel(0).Table(0).Cell(0, 1).Panel(0).Panel(2).Button(1)
+
+                                              ' Sys.Browser("chrome").Page("https://caninecommons.cancer.gov/#/cases").Panel("root").Panel(2).Panel(0).Panel(3).Panel(1).Panel(0).Table(0).Cell(0, 1).Panel(0).Panel(2).Button(1).SVG(0)
+
+                                              'do While P.Enabled = True 
+                                              'dim Colltemp
+                                              '
+                                              'Set Colltemp  =SimpleParsing()
+                                              '
+                                              'For Each i in Colltemp.keys
+                                              '  
+                                              '    Log.Message "Key: " & i & " Value: " & Colltemp(i)
+                                              '    
+                                              'Next
+                                              'P.click
+                                              'Loop 
+
+
+
+
+Set CollWeb = SimpleParsing()
+ 
+
+Log.Message "yes RS is working :" + cstr(CollWeb.recordcount)
+   
+'Set =nothing 
+' Log.Message CollWeb.exists
+ 
+  
+ 'Dim outPut, sql , server
+ 'server="bolt://ncias-d2267-c.nci.nih.gov/"
+ 'sql="MATCH (t:clinical_trial) OPTIONAL MATCH (t)<-[*]-(:assignment_report)-[*]->(c:case)  RETURN  t.clinical_trial_id AS clinical_trial_id ,count(DISTINCT(c)) AS cases ORDER BY t.clinical_trial_id"
+'sql= "MATCH (t:clinical_trial)<-[*]-(a:arm)<-[*]-(assignment_report)-[*]->(c:case) WITH DISTINCT c AS c, t ,a  OPTIONAL MATCH (c)<-[*]-(f:file)  Return c.case_id  As case_id,t.clinical_trial_designation as clinical_trial_code,a.arm_id As arm_id, a.arm_drug As arm_drug, c.disease As disease, c.gender As gender, c.race As race, c.ethnicity As ethnicity"
+'user_Id="neo4j" 
+'Password="icdcDBneo4j0"
+'location_path="C:\Users\lollal\Automation\Neo4jTesterDriver\Excel\Test2.xlsx"
+
+call DBCONNECT()
+
+
+set CollDb =ReadTestdata()
+
+ 'Project.Variables.Dataweb = CollWeb
+'Project.Variables.Datadb= CollDb
+call CompareData(CollDb, CollWeb)
+call CompareData( CollWeb,CollDb)
+
+End Sub 

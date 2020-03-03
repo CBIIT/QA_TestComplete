@@ -1,0 +1,25 @@
+﻿Sub Test1
+ 
+
+
+
+End Sub
+
+Sub Test2
+
+
+
+  Dim browser
+  Set browser = Aliases.browser
+  Call browser.BrowserWindow.Click(460, 57)
+  Call Browsers.Item(btChrome).Navigate("https://caninecommons.cancer.gov/#/cases")
+  Call browser.pageIcdc2.Keys("[Enter]")
+End Sub
+
+Sub Test3
+  Dim page
+  Call Browsers.Item(btChrome).Navigate("https://caninecommons.cancer.gov/#/cases")
+  Set page = Aliases.browser.pageIcdc2
+  Call page.vg2.Click(49, 36)
+  Call aqObject.CheckProperty(page.vg3, "contentText", cmpEqual, "Malignant neoplasm of the resp...."&Chr(10)&"9"&Chr(10)&"Cases")
+End Sub

@@ -1,0 +1,117 @@
+﻿'USEUNIT functions
+Sub loadapp
+Dim File, i ,row, col , LocalIndex,Coll,j
+Set Coll=  CreateObject("Scripting.Dictionary")
+Set File = Sys.OleObject("Excel.Application")
+Log.Message File.Caption
+'if File.Exists then 
+    File.Workbooks.Open(Project.Variables.Excel)
+    Set objSheet = File.ActiveWorkbook.Worksheets(1)
+    'File.Workbooks.Open(Project.Variables.Excel)
+LocalIndex=0
+row =File.Sheets("testcase").UsedRange.Rows.Count
+col=File.Sheets("testcase").UsedRange.Columns.Count
+'End if 
+
+Set CollWeb = AddRecord
+Set CollDb = AddRecord
+
+
+
+
+For i = 2 to row
+ 
+
+
+  for j = 1 to col 
+if File.Sheets("testcase").cells(i,9).value="Y" then
+    
+  Select case File.Sheets("testcase").cells(1,j).value
+    case "Page"
+      
+   if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.page= File.Sheets("testcase").cells(i,j).value
+
+        Project.Variables.url= File.Sheets("testcase").cells(i,j).value        
+     end if 
+      
+    case "ObjectType"
+      if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.objectype  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+       
+    case "propertyName"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.propertyname  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+    case "propertyvalue"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.propertyvalue  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+    Case "action"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.action  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+   Case "Query"
+   if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.Query  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+  Case "Function"
+  str= File.Sheets("testcase").cells(i,j).value
+      if File.Sheets("testcase").cells(i,j).value <>  "" then
+      str = File.Sheets("testcase").cells(i,j).value 
+                 select case Str
+                    case  "Action_Click" 
+                     var= Runner.CallMethod("functions.Action_Click")
+                    case  "SimpleParsing" 
+                      set CollWeb= Runner.CallMethod("functions.SimpleParsing")
+                      Log.Message CollWeb.recordcount
+                     case  DB_connect
+                     case "ReadTestdata"
+                     set CollDb =ReadTestdata()
+                     case "comparedata"
+                     
+                        var= Runner.CallMethod("functions.CompareData(CollDb, CollWeb)")
+                     ' var= Runner.CallMethod( CompareData(CollDb, CollWeb)")    
+                     'var= Runner.CallMethod("functions.DBCONNECT(Project.Variables.server, Project.Variables.user_id, project.Variables.Password, _
+                                '  Project.Variables.Query,  project.Variables.location_path))
+                    ' Runner.CallMethod()
+                end select
+                   'str = "(" + Chr(34) + str + Chr(34) + ")"
+       
+      end if 
+'    case else
+    
+        
+  end select 
+Else  'Log.Message File.Sheets("testcase").cells(i,j).value
+End If    
+  next 
+
+Next
+
+File.quit  
+set File= Nothing
+End Sub
+

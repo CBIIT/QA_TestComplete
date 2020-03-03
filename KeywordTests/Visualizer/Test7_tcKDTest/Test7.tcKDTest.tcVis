@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{42D2222C-ACA2-405F-8E67-05D5C42EB839}" version="2">
+	<data key="{7778E781-391A-47DA-A620-13C881B9BD41}">
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="0" kind="0" dateTime="43869.6013310185" objectName="Aliases.browser.BrowserWindow" objectLeft="-8" objectTop="-8" objectRight="1374" objectBottom="736" clickPointX="376" clickPointY="57" imageFileName="tcvi73711437164840.png" storageFileName="" needUpdate="False" rectColor="255" />
+		<item typeId="{87B03792-E854-4F5D-9F33-165F1F874209}" version="2" lineNo="2" kind="0" dateTime="43869.6013425926" objectName="Aliases.browser.pageIcdc2" objectLeft="0" objectTop="103" objectRight="1366" objectBottom="728" clickPointX="-1" clickPointY="-1" imageFileName="tcvi73712296164841.png" storageFileName="" needUpdate="False" rectColor="255" />
+	</data>
+</Root>

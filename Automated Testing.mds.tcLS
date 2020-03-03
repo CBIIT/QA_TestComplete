@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="data">
+			<Node name="logs">
+				<Prp name="key" type="S" value="{B36E6C7B-C41F-47E4-AA3A-98D0B8FAE73A}"/>
+				<Prp name="relpath" type="S" value="Log"/>
+			</Node>
+			<Node name="variables">
+				<Node name="datav3">
+					<Node name="var0">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value=" "/>
+						</Node>
+						<Prp name="name" type="S" value="Test"/>
+					</Node>
+					<Node name="var1">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value=" "/>
+						</Node>
+						<Prp name="name" type="S" value="Tet"/>
+					</Node>
+					<Node name="var10">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="500061006E0065006C00"/>
+						</Node>
+						<Prp name="name" type="S" value="objectype"/>
+					</Node>
+					<Node name="var11">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="63006F006E00740065006E0074005400650078007400"/>
+						</Node>
+						<Prp name="name" type="S" value="propertyname"/>
+					</Node>
+					<Node name="var12">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="44006F006200650072006D0061006E002000500069006E00730063006800650072002000280032002900"/>
+						</Node>
+						<Prp name="name" type="S" value="propertyvalue"/>
+					</Node>
+					<Node name="var13">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="63006C00690063006B00"/>
+						</Node>
+						<Prp name="name" type="S" value="action"/>
+					</Node>
+					<Node name="var14">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="62006F006C0074003A002F002F006E0063006900610073002D00710032003200350031002D0063002E006E00630069002E006E00690068002E0067006F0076002F00"/>
+						</Node>
+						<Prp name="name" type="S" value="server"/>
+					</Node>
+					<Node name="var15">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="6E0065006F0034006A00"/>
+						</Node>
+						<Prp name="name" type="S" value="user_id"/>
+					</Node>
+					<Node name="var16">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="6900630064006300440042006E0065006F0034006A003000"/>
+						</Node>
+						<Prp name="name" type="S" value="Password"/>
+					</Node>
+					<Node name="var17">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="43003A005C00550073006500720073005C00720061006400680061006B0072006900730068006E0061006E00670032005C004400650073006B0074006F0070005C00540065007300740043006F006D0070006C006500740065005C00540065007300740044006100740061005C00540065007300740033005F0063006C0069006E006900630061006C0054007200690061006C007300420072006500650064002E0078006C0073007800"/>
+						</Node>
+						<Prp name="name" type="S" value="location_path"/>
+					</Node>
+					<Node name="var18">
+						<Prp name="name" type="S" value="MainExcel"/>
+					</Node>
+					<Node name="var19">
+						<Prp name="name" type="S" value="ReadFromDB"/>
+					</Node>
+					<Node name="var2">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value=" "/>
+						</Node>
+						<Prp name="name" type="S" value="CollWeb"/>
+					</Node>
+					<Node name="var20">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="43003A005C00550073006500720073005C00720061006400680061006B0072006900730068006E0061006E00670032005C004400650073006B0074006F0070005C00540065007300740043006F006D0070006C006500740065005C005400650073007400430061007300650073005C00540065007300740033005F0063006C0069006E006900630061006C0054007200690061006C007300420072006500650064002E0078006C0073007800"/>
+						</Node>
+						<Prp name="name" type="S" value="Excel"/>
+					</Node>
+					<Node name="var21">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value=" "/>
+						</Node>
+						<Prp name="name" type="S" value="Query"/>
+					</Node>
+					<Node name="var3">
+						<Prp name="name" type="S" value="ReadFromWeb"/>
+					</Node>
+					<Node name="var4">
+						<Prp name="name" type="S" value="Dataweb"/>
+					</Node>
+					<Node name="var5">
+						<Prp name="name" type="S" value="Datadb"/>
+					</Node>
+					<Node name="var6">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="490043004400430051002000"/>
+						</Node>
+						<Prp name="name" type="S" value="environment"/>
+					</Node>
+					<Node name="var7">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="680074007400700073003A002F002F00630061006E0069006E00650063006F006D006D006F006E0073002D00710061002E00630061006E006300650072002E0067006F0076002F0023002F002A00"/>
+						</Node>
+						<Prp name="name" type="S" value="url"/>
+					</Node>
+					<Node name="var8">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="4300680072006F006D006500"/>
+						</Node>
+						<Prp name="name" type="S" value="runBrowser"/>
+					</Node>
+					<Node name="var9">
+						<Node name="value">
+							<Prp name="strvalue" type="H" value="680074007400700073003A002F002F00630061006E0069006E00650063006F006D006D006F006E0073002D00710061002E00630061006E006300650072002E0067006F0076002F0023002F002A00"/>
+						</Node>
+						<Prp name="name" type="S" value="page"/>
+					</Node>
+				</Node>
+				<Prp name="version" type="I" value="3"/>
+			</Node>
+		</Node>
+		<Prp name="signature" type="S" value="{49FC0C30-9EF7-4DBD-97A8-B7A00E79A2AF}"/>
+	</Node>
+</Nodes>

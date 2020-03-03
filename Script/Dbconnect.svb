@@ -1,0 +1,25 @@
+﻿'Sub DBCONNECT ()
+'dim server ,Usrname, Password ,Query ,ExcelLocation
+'
+'
+'
+'  server= Project.Variables.server 
+'  Usrname= Project.Variables.user_id  
+'  Password= project.Variables.Password
+'  
+'  'ExcelLocation= "C:\Users\lollal\Testcomplete\Test_connect.xlsx"
+'  
+'Query = Project.Variables.Query  
+'ExcelLocation= project.Variables.location_path
+'
+'
+''JavaClasses.gov_data_common_neo4j 
+'
+'     call JavaClasses.gov_data_common_neo4j.CypherExecutor.newInstance.run _
+'      ( server,Usrname,Password,Query, ExcelLocation)
+'    
+'    
+'
+'    
+'    Log.Message output
+'End Sub

@@ -1,0 +1,233 @@
+﻿'USEUNIT functions
+Sub loadapp
+Dim File, i ,row, col , LocalIndex,Coll,j, FileBackup
+Set Coll=  CreateObject("Scripting.Dictionary")
+Set File = Sys.OleObject("Excel.Application")
+set FileBackup = Sys.OleObject("Excel.Application")
+
+
+
+'Log.Message File.Caption
+'if File.Exists then 
+  
+    File.Workbooks.Open(Project.Variables.Excel)
+    'Set objSheet = File.ActiveWorkbook.Worksheets(1)
+    'File.Workbooks.Open(Project.Variables.Excel)
+    if  Project.Variables.VariableExists("MainExcel") = True then 
+         Project.Variables.RemoveVariable "MainExcel"
+  Else  
+end if 
+ call Project.Variables.AddVariable("MainExcel","Object")
+   
+set Project.Variables("MainExcel") = File    
+    
+LocalIndex=0
+row =File.Sheets("testcase").UsedRange.Rows.Count
+col=File.Sheets("testcase").UsedRange.Columns.Count
+i=0 
+j=0
+
+Set FileBackup =File 
+' row= 0 
+ 'col = 0'
+
+'End if 
+
+'Set CollWeb = AddRecord
+'Set CollDb = AddRecord
+File.quit  
+set File= Nothing
+
+
+
+For i = 2 to row
+ 
+
+
+  for j = 1 to col
+  Set File = Sys.OleObject("Excel.Application")
+   File.Workbooks.Open(Project.Variables.Excel)
+  
+'  if File.exists = False then 
+   Set File = Project.Variables("MainExcel")
+ ' End if 
+if File.Sheets("testcase").cells(i,9).value="Y" then
+    
+  Select case File.Sheets("testcase").cells(1,j).value
+    case "Page"
+      
+   if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.page= File.Sheets("testcase").cells(i,j).value
+
+        Project.Variables.url= File.Sheets("testcase").cells(i,j).value        
+     end if 
+      
+    case "ObjectType"
+      if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.objectype  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+       
+    case "propertyName"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.propertyname  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+    case "propertyvalue"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.propertyvalue  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+    Case "action"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.action  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+   Case "Query"
+   if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.Query  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+  Case "Function"
+  str= File.Sheets("testcase").cells(i,j).value
+      if File.Sheets("testcase").cells(i,j).value <>  "" then
+      str = File.Sheets("testcase").cells(i,j).value 
+                 select case Str
+                    case  "Action_Click" 
+                     var= Runner.CallMethod("functions.Action_Click")
+                    case  "SimpleParsing" 
+                      
+                      call Runner.CallMethod("functions.SimpleParsing")
+                       'set project.Variables.Dataweb = CollWeb
+                      'Log.Message CollWeb.recordcount
+                     case  "Dbconnect"
+                     
+File.quit  
+set File= Nothing
+                     var=  Runner.CallMethod("functions.DBCONNECT")
+                     
+                     'call DBCONNECT(Project.Variables.server, Project.Variables.user_id, project.Variables.Password, _
+                      '      Project.Variables.Query,  project.Variables.location_path)
+                     case "ReadTestdata"
+                         
+                         'CollDb =ReadTestdata()
+                         'File.workboo  .close
+                         
+                     'File.quit
+File.quit  
+set File= Nothing
+                     call ReadTestdata()    
+                     
+                     
+                    ' var= Runner.CallMethod ("functions.ReadTestdata")
+                          'project.Variables.Datadb =CollDb
+                     case "datcompareDB_WB"
+                        var=  Runner.CallMethod("functions.datcompareDB_WB")
+                     case "datcompareWE_DB"
+                        var=  Runner.CallMethod("functions.datcompareWE_DB")
+                      case "ClearAll"
+                        var=  Runner.CallMethod("functions.ClearAll")
+                end select
+                   'str = "(" + Chr(34) + str + Chr(34) + ")"
+       
+      end if 
+'    case else
+    
+        
+  end select 
+Else  'Log.Message File.Sheets("testcase").cells(i,j).value
+End If    
+  next 
+
+  log.Message cstr(i) 
+Next
+
+File.quit  
+set File= Nothing
+End Sub
+
+
+
+
+Function ReadTestdata( )
+Dim Rs
+'Set Rs= AddRecord()
+call CreateRecord("ReadFromDB")
+
+
+Dim Fread, i ,row, col , Index,Coll,j,TblRcount
+Set Fread = Sys.OleObject("Excel.Application")
+'Set Fread = Project.Variables("MainExcel")
+
+    Fread.Workbooks.Open(Project.Variables.location_path)
+    Set objSheet = Fread.ActiveWorkbook.Worksheets(1)
+    'File.Workbooks.Open(Project.Variables.Excel)
+
+row =Fread.Sheets("CypherOutput").UsedRange.Rows.Count
+col=Fread.Sheets("CypherOutput").UsedRange.Columns.Count
+
+Index=1
+TblRcount=1             
+
+Set Rs=  Project.Variables.VariableByName("ReadFromDB")
+
+Rs.Rowcount=row+1
+
+For i = 1 To (row)
+'Rs.AddNew
+
+
+
+    For j = 1 To (col )    
+        'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j).innerText)
+        
+        select case Fread.Sheets("CypherOutput").cells(1,j).value  
+       ' Rs.AddNew
+        case "case_id"
+                Rs.Item("CaseID",i) = Fread.Sheets("CypherOutput").cells(i,j).value
+                 'Coll.add  cstr(LocalIndex) + cstr(i)+ cstr( j) , File.Sheets("CypherOutput").cells(i,j).value  
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        case "study_code"
+                Rs.Item("StudyCode",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+        Case "study_type"
+                Rs.Item("StudyType",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+        Case "breed"
+                Rs.Item("Breed",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+        Case "diagnosis"
+                Rs.Item("Diagnosis",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+        case "Stage of Disease"
+                Rs.Item("StageOfDisease",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+        case "age"
+                Rs.Item("Age",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+        Case "sex"
+                Rs.Item("Sex",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+        case "neutered_status"
+                Rs.Item("Neutered Status",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+        End Select
+                
+      Next
+     'Log.Message cstr(i)  + cstr(j) + File.Sheets("CypherOutput").cells(i,j).value
+  Next
+  Log.Message " the data in Read From Web  :  "  + cstr(RS.Rowcount)
+ 'Log.Message cstr(i)  + cstr(j) + File.Sheets("Cyph erOutput").cells(i,j).value
+'Fread.Workbooks.Close
+'Fread.Quit
+
+'set Fread = nothing  
+End Function

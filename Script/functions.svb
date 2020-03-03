@@ -1,0 +1,1070 @@
+﻿Sub DBCONNECT ()
+dim server ,Usrname, Password ,Query ,ExcelLocation
+
+
+  
+  server= Project.Variables.server
+  Usrname= Project.Variables.user_id  
+  Password= project.Variables.Password
+  
+Query = Project.Variables.Query  
+ExcelLocation= project.Variables.location_path
+
+
+ 
+call JavaClasses.gov_data_common_neo4j.CypherExecutor.newInstance.run _
+      ( server,Usrname,Password,Query, ExcelLocation)
+    
+    
+    Log.Message output
+End Sub
+
+
+
+
+
+Sub Initial (Byref xlFileName) 
+      Dim Excel, RowCount, ColumnCount, i, j, s
+      dim rs
+      rs = AddRecord
+
+
+      if  Project.Variables.VariableExists("Excel") = True then 
+        Project.Variables.RemoveVariable "Excel"
+        Else  
+      end if 
+      Project.Variables.AddVariable "Excel","String"
+      Project.Variables.Excel= xlFileName 
+            'Project.Variables.Excel= "C:\Users\lollal\Testcomplete\StartApp.xlsx"
+        Set Excel = Sys.OleObject("Excel.Application")
+        Excel.Workbooks.Open(  Project.Variables.Excel)
+      'Project.Variables.AddVariable ("CollWeb",) 
+      'Log.Message Project.Variables.environment
+       if  Project.Variables.VariableExists("Query") = True then 
+        Project.Variables.RemoveVariable "Query"
+        Else  
+      end if 
+     Project.Variables.AddVariable "Query","String"
+      Project.Variables.Query =Excel.Sheets("testcase").cells(2,7).value
+      if  Project.Variables.VariableExists("Dataweb") = True then 
+        Project.Variables.RemoveVariable "Dataweb"
+        Else  
+      end if 
+      Project.Variables.AddVariable "Dataweb","Object"
+       
+      if  Project.Variables.VariableExists("Datadb") = True then 
+        Project.Variables.RemoveVariable "Datadb"
+        Else  
+      end if 
+      Project.Variables.AddVariable "Datadb","Object"
+       Project.Variables.Datadb=rs
+       Project.Variables.Dataweb=rs
+         
+      
+      
+      'Call CreateEnvVariable("Dataweb" , "Datfromweb") 
+      'Call CreateEnvVariable("Datadb" , "DatfromDB") 
+      call CreateEnvVariable( "environment" ,Excel.Sheets("startup").cells(2,1).value )
+      call CreateEnvVariable( "url" ,cstr(Excel.Sheets("startup").cells(2,2).value) )
+      call CreateEnvVariable( "runBrowser" ,Excel.Sheets("startup").cells(2,3).value )
+      call CreateEnvVariable( "page" ,cstr(Excel.Sheets("testcase").cells(2,2).value) )
+      call CreateEnvVariable( "objectype" ,Excel.Sheets("testcase").cells(2,3).value )
+      call CreateEnvVariable( "propertyname" ,Excel.Sheets("testcase").cells(2,4).value )
+      call CreateEnvVariable( "propertyvalue" ,Excel.Sheets("testcase").cells(2,5).value )
+      call CreateEnvVariable( "action" ,Excel.Sheets("testcase").cells(2,6).value )
+      call CreateEnvVariable( "server" ,Excel.Sheets("startup").cells(2,4).value )
+      call CreateEnvVariable( "user_id" ,Excel.Sheets("startup").cells(2,5).value )
+      call CreateEnvVariable( "Password" ,Excel.Sheets("startup").cells(2,6).value )
+      call CreateEnvVariable( "location_path" ,Excel.Sheets("startup").cells(2,7).value )
+      
+      'call CreateEnvVariable( "Query" ,Excel.Sheets("testcase").cells(2,7).value)
+
+Log.Message "Environment variables as loaded as Follows :"
+
+Dim Variables, Count, VarName, VarValue
+
+  ' Obtains the Variables object
+  Set Variables = project.Variables
+
+  ' Obtains the total number of variables
+  Count = Variables.VariableCount
+
+  ' Iterates through the variables
+  For i = 0 To Count - 1
+    ' Obtains a variable's name
+    VarName = Variables.GetVariableName(i)
+    ' Obtains the variable's value
+    VarValue = aqConvert.VarToStr(Variables.VariableByName(VarName))
+    Log.Message("Variable: " & VarName & " Value: " & VarValue)
+  Next
+
+'DONOT NOT DELTE BELOW #################
+' environment  Excel.Sheets("startup").cells(2,1).value
+'url Excel.Sheets("startup").cells(2,2).value
+' runBrowser  Excel.Sheets("startup").cells(2,3).value
+' page Excel.Sheets("testcase").cells(2,2).value
+' objectype Excel.Sheets("testcase").cells(2,3).value
+'propertyname  Excel.Sheets("testcase").cells(2,4).value
+'propertyvalue Excel.Sheets("testcase").cells(2,5).value
+'action Excel.Sheets("testcase").cells(2,6).value
+'server= Excel.Sheets("startup").cells(2,4).value
+'user_id = Excel.Sheets("startup").cells(2,5).value
+
+'Password= Excel.Sheets("startup").cells(2,6).value
+'location_path =Excel.Sheets("startup").cells(2,7).value
+'sql= "MATCH (t:clinical_trial)<-[*]-(a:arm)<-[*]-(assignment_report)-[*]->(c:case) WITH DISTINCT c AS c, t ,a  OPTIONAL MATCH (c)<-[*]-(f:file)  Return c.case_id  As case_id,t.clinical_trial_designation as clinical_trial_code,a.arm_id As arm_id, a.arm_drug As arm_drug, c.disease As disease, c.gender As gender, c.race As race, c.ethnicity As ethnicity"
+
+'##########################
+
+Project.Variables.Query  = "MATCH (s:study) WITH COLLECT(DISTINCT(s.clinical_study_designation)) AS all_studies MATCH (d:demographic) WITH COLLECT(DISTINCT(d.breed)) AS all_breeds, COLLECT(DISTINCT(d.sex)) AS all_sexes, all_studies MATCH (d:diagnosis) WITH COLLECT(DISTINCT(d.disease_term)) AS all_diseases, all_breeds, all_sexes, all_studies MATCH (p:program)<-[*]-(s:study)<-[*]-(c:case)<--(demo:demographic), (c)<--(diag:diagnosis) WITH DISTINCT c AS c, p, s, demo, diag RETURN c.case_id AS case_id, s.clinical_study_designation AS study_code, s.clinical_study_type AS study_type, demo.breed AS breed, diag.disease_term AS diagnosis, diag.stage_of_disease AS stage_of_disease,demo.patient_age_at_enrollment AS age, demo.sex AS sex, demo.neutered_indicator AS neutered_status"
+
+
+
+
+
+
+Excel.Quit
+set Excel= nothing 
+  
+
+  'Browsers.Item(btChrome).Run "http://smartbear.com"
+
+End Sub
+
+Sub loadapp()
+
+While Sys.WaitBrowser().Exists
+  ' If Sys.WaitBrowser().Exists Then
+    Call Sys.WaitBrowser().Close()
+  Wend
+  ' End If
+  'Call Browsers.Item(btIExplorer).Run("http://smartbear.com")
+
+ Browsers.Item(Project.Variables.runBrowser).Run(Project.Variables.url)
+' Browsers.Item(btFirefox).Run(Project.Variables.url)
+ 'Browsers.Item("iexplore").Run("http://smartbear.com")
+  
+End Sub
+
+
+
+
+Sub Action_Click()
+Dim MyStr
+Dim L  
+dim temp
+'temp=  "Clinical Trial (84)"
+Set P = Sys.Browser(Project.Variables.runBrowser).Page(Project.Variables.url)
+  props = Array( "ObjectType", Project.Variables.propertyname)  '"ObjectType", "contentText"
+  values = Array( Project.Variables.objectype, Project.Variables.propertyvalue  )'  PropertyValue)   '"Link", "Cases")  'Project.Variables.propertyvalue
+ Set  L = P.FindChild(props,values,10)
+    
+'MyStr= Chr(34) + L + "." + Project.Variables.action + Chr(34) 
+ 'mystr= "Project.Variables." + Str   + "=" + chr(34)+ Value + chr(34)
+ 
+ Execute "L.click"
+ Log.Message Project.Variables.objectype + Project.Variables.propertyvalue + " was clicked "
+'Execute MyStr
+End Sub
+
+
+'          Function ReadTestdata( )
+'          Dim Rs
+'          'Set Rs= AddRecord()
+'          call CreateRecord("ReadFromDB")
+'
+'
+'          Dim Fread, i ,row, col , Index,Coll,j,TblRcount
+'          Set Fread = Sys.OleObject("Excel.Application")
+'          Set Fread = Project.Variables("MainExcel")
+'
+'              'Fread.Workbooks.Open(Project.Variables.location_path)
+'             ' Set objSheet = Fread.ActiveWorkbook.Worksheets(1)
+'              'File.Workbooks.Open(Project.Variables.Excel)
+'
+'          row =Fread.Sheets("CypherOutput").UsedRange.Rows.Count
+'          col=Fread.Sheets("CypherOutput").UsedRange.Columns.Count
+'
+'          Index=1
+'          TblRcount=1             
+'
+'          Set Rs=  Project.Variables.VariableByName("ReadFromDB")
+'
+'          Rs.Rowcount=row+1
+'
+'          For i = 1 To (row)
+'          'Rs.AddNew
+'
+'
+'
+'              For j = 1 To (col )    
+'                  'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j).innerText)
+'        
+'                  select case Fread.Sheets("CypherOutput").cells(1,j).value  
+'                 ' Rs.AddNew
+'                  case "case_id"
+'                          Rs.Item("CaseID",i) = Fread.Sheets("CypherOutput").cells(i,j).value
+'                           'Coll.add  cstr(LocalIndex) + cstr(i)+ cstr( j) , File.Sheets("CypherOutput").cells(i,j).value  
+'                          'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+'                  case "study_code"
+'                          Rs.Item("StudyCode",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+'                  Case "study_type"
+'                          Rs.Item("StudyType",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+'                  Case "breed"
+'                          Rs.Item("Breed",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+'                  Case "diagnosis"
+'                          Rs.Item("Diagnosis",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+'                  case "Stage of Disease"
+'                          Rs.Item("StageOfDisease",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+'                  case "age"
+'                          Rs.Item("Age",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+'                  Case "sex"
+'                          Rs.Item("Sex",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+'                  case "neutered_status"
+'                          Rs.Item("Neutered Status",i)= Fread.Sheets("CypherOutput").cells(i,j).value
+'                  End Select
+'                
+'                Next
+'               'Log.Message cstr(i)  + cstr(j) + File.Sheets("CypherOutput").cells(i,j).value
+'            Next
+'  
+'           'Log.Message cstr(i)  + cstr(j) + File.Sheets("CypherOutput").cells(i,j).value
+'          'Fread.Workbooks.Close
+'          'Fread.Quit
+'
+'          'set Fread = nothing  
+'          End Function
+
+
+
+'####################################################################
+
+
+
+Sub CheckBrokenLinks
+
+
+  Dim page, expectedObjectData, links, linksCount, link, URL, i
+
+  URL = Project.Variables.url
+  
+ set page=sys.Browser(Project.Variables.runBrowser).Page(Project.Variables.page)
+  'Set page = Sys.Browser("*").Page("*")
+
+  expectedObjectData = ""
+
+  ' Obtains the links
+  Set links = page.contentDocument.links
+  linksCount = links.length
+
+  If linksCount > 0 Then
+
+  ' Searches for broken links
+  For i = 0 To linksCount - 1
+
+    Set link = links.item(i)
+
+    URL = link.href
+    Log.AppendFolder(URL)
+    Log.Message("The " & URL & " verification results: " & VerifyWebObject(URL, expectedObjectData))
+    Log.PopLogFolder()
+
+  Next
+  End If
+
+End Sub
+
+
+' Checks whether the specified URL is valid
+Function VerifyWebObject(link, expectedObjectData)
+  Err.Clear
+  Dim httpObj
+
+  Set httpObj = aqHttp.CreateGetRequest(link)
+  On Error Resume Next
+    Dim httpObjResult
+    Set httpObjResult = httpObj.Send
+    If Not httpObjResult = Empty Then
+      Select Case httpObjResult.StatusCode
+
+        Case 200
+          If (httpObjResult.Text <> expectedObjectData) Then
+            Call Log.Message("The " & link & " link is valid", httpObjResult.Text)
+            VerifyWebObject = False
+            'Exit Function
+          Else
+            VerifyWebObject = True
+          End If
+
+        Case 302
+          If (httpObjResult.Text <> expectedObjectData) Then
+            Call Log.Message("The " & link & " link is valid", httpObjResult.Text)
+            VerifyWebObject = False
+            Exit Function
+          Else
+            VerifyWebObject = True
+          End If
+
+        Case Else
+          Call Log.Message("The " & link & " link was not found," & " the returned status: " & httpObjResult.StatusCode, httpObjResult.Text)
+          VerifyWebObject = False
+      End Select
+
+    Else
+      VerifyWebObject = False
+    End If
+
+  If Err.Number <> 0 Then
+
+    Log.Warning Err.Description
+    VerifyWebObject = False
+  End If
+
+End Function
+
+
+'##################################################################
+
+Function SimpleParsing () 
+
+Dim Rs
+index=0 
+
+
+Dim page, table,props,values,intRwIndex ,temp , col, row ,valu ,i  ,index,TblRcount 
+'Set Rs= AddRecord()  
+Set P = Sys.Browser("chrome").Page(Project.Variables.page).Panel("root").Panel(2).Panel(0).Panel(3).Panel(1).Panel(0).Table(0).Cell(0, 1).Panel(0).Panel(2).Button(1)  
+
+'  url = "https://caninecommons.cancer.gov/#/cases"
+  Set Page= Sys.Browser("Chrome").Page(Project.Variables.url)
+    props = Array( "ObjectType", "contentText")  '"ObjectType", "contentText"
+    values = Array( "Cell", "Case ID")   '"Link", "Cases")
+  Set cell = Page.FindChild(props,values,10) 
+
+call CreateRecord("ReadFromWeb")
+
+Set Rs=  Project.Variables.VariableByName("ReadFromWeb")
+
+
+set temp=    cell.Parent
+If temp.Exists Then
+'        col =temp.ColumnCount(row)
+'        row =temp.RowCount
+'        Log.Message "colum Count:" + cstr(col)
+'        Log.Message " Rowcount :"  + cstr(row) 
+Index=1
+TblRcount=1             
+ do        
+    TblRcount= TblRcount+temp.rows.length -1
+' Log.Message "tblecount :"  + cstr(TblRcount)   + " Index value :" + cstr(Index)
+    Rs.Rowcount=TblRcount                                                                                 
+    For i = 1 To temp.rows.length-1
+    'Rs.AddNew
+      'Log.AppendFolder("Row " & i)
+      For j = 1 To temp.rows.item(i).cells.length - 1
+        'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j).innerText)
+        select case temp.rows.item(i).cells.item(j).innerText  
+        'Rs.AddNew
+        case "Case ID"
+                'Rs.Fields("CaseID") = temp.rows.item(i).cells.item(j+1).innerText  
+                Rs.Item("CaseID",index) = temp.rows.item(i).cells.item(j+1).innerText 
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        case "Study Code"
+                'Rs.Fields("StudyCode")= temp.rows.item(i).cells.item(j+1).innerText
+                 Rs.Item("StudyCode",index)= temp.rows.item(i).cells.item(j+1).innerText
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        Case "Study Type"
+                'Rs.Fields("StudyType")= temp.rows.item(i).cells.item(j+1).innerText
+                Rs.Item("StudyType",index)= temp.rows.item(i).cells.item(j+1).innerText
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        Case "Breed"
+                'Rs.Fields("Breed")= temp.rows.item(i).cells.item(j+1).innerText
+                Rs.Item("Breed",index)= temp.rows.item(i).cells.item(j+1).innerText
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        Case "Diagnosis"
+                'Rs.Fields("Diagnosis")= temp.rows.item(i).cells.item(j+1).innerText
+                 Rs.Item("Diagnosis",index)= temp.rows.item(i).cells.item(j+1).innerText
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        case "Stage of Disease"
+                'Rs.Fields("StageOfDisease")= temp.rows.item(i).cells.item(j+1).innerText
+                 Rs.Item("StageOfDisease",index)= temp.rows.item(i).cells.item(j+1).innerText
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        case "Age"
+                'Rs.Fields("Age")= temp.rows.item(i).cells.item(j+1).innerText
+                Rs.Item("Age",index)= temp.rows.item(i).cells.item(j+1).innerText
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        Case "Sex"
+                'Rs.Fields("Sex")= temp.rows.item(i).cells.item(j+1).innerText
+                Rs.Item("Sex",i)= temp.rows.item(i).cells.item(j+1).innerText
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        case "Neutered Status"
+                'Rs.Fields("Neutered Status")= temp.rows.item(i).cells.item(j+1).innerText
+                Rs.Item("Neutered Status",index)= temp.rows.item(i).cells.item(j+1).innerText
+                'Log.Message("Cell " & j & ": " & temp.rows.item(i).cells.item(j+1).innerText)
+        End Select
+                
+      Next
+      
+'      Log.Message " Items so far  :"  + Rs.Item("CaseID",index) 
+  index=index+1     
+ '     P.click
+      'Rs.Update
+      'Log.PopLogFolder
+    Next
+ 
+'Log.Message "recordsparsed"+   cstr( Rs.Rowcount) 
+   
+ If  P.Enabled = True Then
+   P.click
+  end if  
+ 
+loop While P.Enabled = True 
+      
+end if 
+
+
+
+
+  Set MyVar = Project.Variables.ReadFromWeb 
+  Set Iterator = MyVar.Iterator
+  
+  ' Initializes the iterator
+  Call Iterator.Reset
+  
+  Dim ColName , rowname
+  
+  ' Iterates through the rows
+  'While Not Iterator.IsEOF
+ for rowname= 1 to   MyVar.RowCount-1
+
+For col = 0 to MyVar.ColumnCount-1
+
+
+  
+    'Log.Message  cstr(rowname ) +  " good:" + myVar.item(col,rowname )    
+    
+Next
+Next    
+    ' Forwards the iterator to the next row
+'    Iterator.Next
+ ' WEnd
+
+
+'set SimpleParsing= Rs
+   
+'Rs.close
+ 
+End Function
+
+
+sub Parse
+ Dim page, table
+
+  url = "https://trialcommons-qa.cancer.gov/#/cases"
+  Browsers.Item(Project.Variables.runBrowser).Run url
+ Set page = Sys.Browser("*").Page("*")
+
+  Set table = page.FindChild("Name","Table(1)", 20)
+  If table.Exists Then
+
+    ' Goes through the rows and cells of the table
+    For i = 0 To table.rows.length - 1
+
+      Log.AppendFolder("Row " & i)
+      For j = 0 To table.rows.item(i).cells.length - 1
+        Log.Message("Cell " & j & ": " & table.rows.item(i).cells.item(j).innerText)
+      Next
+      Log.PopLogFolder
+    Next
+    end if 
+end Sub
+
+
+
+'###############################################################
+Sub CreateEnvVariable( Byref Str, Byref Value )
+
+dim mystr , nstr
+if  Project.Variables.VariableExists(Str) = True then 
+  Project.Variables.RemoveVariable Str
+  Else  
+end if 
+mystr ="Project.Variables.AddVariable " + chr(34)+ Str + chr(34) + "," + chr(34) + "String" +chr(34)
+    Execute mystr 
+    mystr= ""
+    
+mystr= "Project.Variables." + Str   + "=" + chr(34)+ cstr(Value )+ chr(34)
+
+    Execute mystr     
+    mystr=""
+    mystr= "Project.Variables." +  Str  
+
+End Sub
+
+
+
+
+'########################################################################
+
+Sub DictionaryDemo
+  Dim d
+  Set d = CreateObject("Scripting.Dictionary")
+
+  ' Add keys and items.
+  d.Add "a", "Alphabet"
+  d.Add "b", "Book"
+  d.Add "c", "Coffee"
+
+  ' Get the item by key.
+  s = d.Item("c")
+  Log.Message(s)
+
+  ' Assign a new item to the same key.
+  d.Item ("c") = "Cookie"
+  s = d.Item("c")
+  Log.Message(s)
+
+  ' Assign a new key to the same item.
+  d.Key("c")="Co"
+
+  ' Remove second pair.
+  d.Remove("b")
+  If d.Exists("b") Then
+      Log.Message("The pair exists.")
+    Else
+      Log.Message("The pair does not exist.")
+  End If
+End Sub
+
+
+'####################################################################
+
+'"Funtion to compare the data from Two Dictionary objects "
+'By Laxmi Lolla  Date 1/23/2020
+
+
+Sub datcompareDB_WB
+
+Dim Web ,DataDB ,IterateWeb, IterateDB ,i  , j ,m,n, bool_comp
+Set DataDB = Project.Variables.ReadFromDB
+
+bool_comp=0
+  Set Web = Project.Variables.ReadFromWeb
+  Set IterateWeb = Web.Iterator
+  Set IterateDB = DataDB.Iterator
+  
+  
+  
+  ' Initializes the iterator
+  Call IterateWeb.Reset
+  call IterateDB.Reset
+For i = 1 to Web.RowCount-1 
+    
+  For j = 1 to DataDB.RowCount-1
+  
+  if Web.Item("CaseID",i) = DataDB.Item("CaseID",j) Then
+    'Log.Message Web.Item("CaseID",i) +"matched with Database"
+    bool_comp=1
+    exit for
+    Else
+       ' Log.Message j
+      
+  end if 
+   
+  Next
+  if bool_comp=1  then 
+   Log.Message Web.Item("CaseID",i) +"matched with Database"
+   
+  else 
+   Log.Message Web.Item("CaseID",i) +"DID NOT with Database" 
+  End if  
+Next
+
+
+  
+   
+
+'  Do while   Webcoll.EOF = False
+'  i=0
+'  'for i= 0 to Webcoll.recordcount
+'
+'       ' Log.Message  Webcoll.Fields("CaseID").value
+'        DataColl.movefirst
+'        Bool_cmpare=0
+'        '
+'        Do while  DataColl.EOF = False    
+'        j = 0 
+'        '    
+'  if Webcoll.Fields("CaseID").value =DataColl.Fields("CaseID").Value then
+'        
+'             Log.Message"casematched "  + Webcoll.Fields("CaseID").value
+'          
+'           Select Case Webcoll.Fields.item(i).name
+'           Case "CaseID"
+'                  if Webcoll.Fields("CaseID").value =DataColl.Fields("CaseID").Value Then
+'                  Bool_cmpare=1
+'                  Else
+'                  Bool_cmpare=0
+'                  end if 
+'           Case "StudyCode"
+'                  if Webcoll.Fields("StudyCode").value =DataColl.Fields("StudyCode").Value Then
+'                    Bool_cmpare=1
+'                        Else
+'                    Bool_cmpare=0
+'        
+'                  end if
+'          Case "Breed"
+'                  if Webcoll.Fields("Breed").value =DataColl.Fields("Breed").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'               end if
+'
+'          Case "StudyType"
+'                  if Webcoll.Fields("StudyType").value =DataColl.Fields("StudyType").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'          end if
+'          Case "Diagnosis"
+'          if Webcoll.Fields("Diagnosis").value =DataColl.Fields("Diagnosis").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'        
+'          end if
+'          Case "Age"
+'         if Webcoll.Fields("Age").value =DataColl.Fields("Age").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'        
+'          end if
+'
+'          Case "Sex"
+'          if Webcoll.Fields("Sex").value =DataColl.Fields("Sex").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'          end if        
+'          Case "StageOfDisease"
+'          if Webcoll.Fields("StageOfDisease").value =DataColl.Fields("StageOfDisease").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'          end if        
+'          Case "Neutered Status"
+'              if Webcoll.Fields("Neutered Status").value =DataColl.Fields("Neutered Status").Value Then
+'                    Bool_cmpare=1
+'                        Else
+'                    Bool_cmpare=0
+'        
+'              end if         
+'                
+'           end Select  
+'        
+'
+        
+        
+  
+ 
+        
+'            
+'              str=  Webcoll.Fields("CaseID").value + Webcoll.Fields("StudyCode").value+ Webcoll.Fields("StudyCode").value + _
+'              Webcoll.Fields("CaseID").value + Webcoll.Fields("Diagnosis").value + Webcoll.Fields("Age").value + _
+'              Webcoll.Fields("Sex").value + Webcoll.Fields("StageOfDisease").value +  Webcoll.Fields("Neutered Status").value
+'
+'        if Bool_cmpare=0 then
+'              log.Error Str
+'              Else
+'              Log.Message "PASSED " + str 
+'        end if      
+'             exit Do
+'    Else
+'if datacoll.EOF =True Then
+'
+'Log.Error "Case Missing rom Web" + Webcoll.Fields("CaseID").value
+'end if    
+'
+'end if
+'          DataColl.movenext
+'          j=j+1 
+'       Loop      
+'  Webcoll.Movenext
+' 
+'i= i+1 
+'
+'loop  
+
+End Sub
+
+Sub datcompareWE_DB
+
+Dim Web ,DataDB ,IterateWeb, IterateDB ,i  , j ,m,n, bool_comp
+Set DataDB = Project.Variables.ReadFromDB
+
+bool_comp=0
+  Set Web = Project.Variables.ReadFromWeb
+  Set IterateWeb = Web.Iterator
+  Set IterateDB = DataDB.Iterator
+  
+  
+  
+  ' Initializes the iterator
+  Call IterateWeb.Reset
+  call IterateDB.Reset
+For i = 1 to DataDB.RowCount-1 ' DataDB.RowCount-1
+    
+  For j = 1 to Web.RowCount-1
+ 'If i<=Web.RowCount then 
+ 'DataDB.Item
+   
+  if DataDB.Item("CaseID",i) = Web.Item("CaseID",j) Then
+    'Log.Message Web.Item("CaseID",i) +"matched with Database"
+    bool_comp=1
+    exit for
+    Else
+       ' Log.Message j
+      
+  end if 
+   
+  Next
+  if bool_comp=1  then 
+   Log.Message DataDB.Item("CaseID",i) +"matched with Database"
+   
+  else 
+   Log.Message DataDB.Item("CaseID",i) +"DID NOT with Database" 
+  End if  
+Next
+
+
+  
+   
+
+'  Do while   Webcoll.EOF = False
+'  i=0
+'  'for i= 0 to Webcoll.recordcount
+'
+'       ' Log.Message  Webcoll.Fields("CaseID").value
+'        DataColl.movefirst
+'        Bool_cmpare=0
+'        '
+'        Do while  DataColl.EOF = False    
+'        j = 0 
+'        '    
+'  if Webcoll.Fields("CaseID").value =DataColl.Fields("CaseID").Value then
+'        
+'             Log.Message"casematched "  + Webcoll.Fields("CaseID").value
+'          
+'           Select Case Webcoll.Fields.item(i).name
+'           Case "CaseID"
+'                  if Webcoll.Fields("CaseID").value =DataColl.Fields("CaseID").Value Then
+'                  Bool_cmpare=1
+'                  Else
+'                  Bool_cmpare=0
+'                  end if 
+'           Case "StudyCode"
+'                  if Webcoll.Fields("StudyCode").value =DataColl.Fields("StudyCode").Value Then
+'                    Bool_cmpare=1
+'                        Else
+'                    Bool_cmpare=0
+'        
+'                  end if
+'          Case "Breed"
+'                  if Webcoll.Fields("Breed").value =DataColl.Fields("Breed").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'               end if
+'
+'          Case "StudyType"
+'                  if Webcoll.Fields("StudyType").value =DataColl.Fields("StudyType").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'          end if
+'          Case "Diagnosis"
+'          if Webcoll.Fields("Diagnosis").value =DataColl.Fields("Diagnosis").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'        
+'          end if
+'          Case "Age"
+'         if Webcoll.Fields("Age").value =DataColl.Fields("Age").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'        
+'          end if
+'
+'          Case "Sex"
+'          if Webcoll.Fields("Sex").value =DataColl.Fields("Sex").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'          end if        
+'          Case "StageOfDisease"
+'          if Webcoll.Fields("StageOfDisease").value =DataColl.Fields("StageOfDisease").Value Then
+'                Bool_cmpare=1
+'                    Else
+'                Bool_cmpare=0
+'          end if        
+'          Case "Neutered Status"
+'              if Webcoll.Fields("Neutered Status").value =DataColl.Fields("Neutered Status").Value Then
+'                    Bool_cmpare=1
+'                        Else
+'                    Bool_cmpare=0
+'        
+'              end if         
+'                
+'           end Select  
+'        
+'
+        
+        
+  
+ 
+        
+'            
+'              str=  Webcoll.Fields("CaseID").value + Webcoll.Fields("StudyCode").value+ Webcoll.Fields("StudyCode").value + _
+'              Webcoll.Fields("CaseID").value + Webcoll.Fields("Diagnosis").value + Webcoll.Fields("Age").value + _
+'              Webcoll.Fields("Sex").value + Webcoll.Fields("StageOfDisease").value +  Webcoll.Fields("Neutered Status").value
+'
+'        if Bool_cmpare=0 then
+'              log.Error Str
+'              Else
+'              Log.Message "PASSED " + str 
+'        end if      
+'             exit Do
+'    Else
+'if datacoll.EOF =True Then
+'
+'Log.Error "Case Missing rom Web" + Webcoll.Fields("CaseID").value
+'end if    
+'
+'end if
+'          DataColl.movenext
+'          j=j+1 
+'       Loop      
+'  Webcoll.Movenext
+' 
+'i= i+1 
+'
+'loop  
+
+End Sub
+
+
+
+
+
+Function AddRecord() 
+Dim Rs
+
+ Set Rs = ADO.CreateRecordset
+    
+  Rs.ActiveConnection = Nothing
+  Rs.CursorLocation = adUseClient
+  Rs.LockType = adLockBatchOptimistic
+    
+  'create fields
+  Rs.Fields.Append "CaseID", adVarChar ,500
+  Rs.Fields.Append "StudyCode", adVarChar,500
+  Rs.Fields.Append "StudyType", adVarChar,500
+  Rs.Fields.Append "Breed", adVarChar,500
+  Rs.Fields.Append "Diagnosis", adVarChar,500
+  Rs.Fields.Append "Age" , adVarChar,500
+  Rs.Fields.Append "Sex", adVarChar,500
+  Rs.Fields.Append "StageOfDisease", adVarChar,500
+  Rs.Fields.Append "Neutered Status", adVarChar,500
+  Rs.Open
+
+set AddRecord =Rs
+
+End Function     
+
+'####################################################
+'Runner Script
+
+'################################
+
+
+ 'USEUNIT functions
+Sub Loading_app() 
+Dim File, i ,row, col , LocalIndex,Coll,j
+Set Coll=  CreateObject("Scripting.Dictionary")
+Set File = Sys.OleObject("Excel.Application")
+Log.Message File.Caption
+'if File.Exists then 
+    File.Workbooks.Open(Project.Variables.Excel)
+    Set objSheet = File.ActiveWorkbook.Worksheets(1)
+    'File.Workbooks.Open(Project.Variables.Excel)
+LocalIndex=0
+row =File.Sheets("testcase").UsedRange.Rows.Count
+col=File.Sheets("testcase").UsedRange.Columns.Count
+'End if 
+
+Set CollWeb = AddRecord
+Set CollDb = AddRecord
+
+
+
+
+For i = 2 to row
+ 
+
+
+  for j = 1 to col 
+if File.Sheets("testcase").cells(i,9).value="Y" then
+    
+  Select case File.Sheets("testcase").cells(1,j).value
+    case "Page"
+      
+   if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.page= File.Sheets("testcase").cells(i,j).value
+
+        Project.Variables.url= File.Sheets("testcase").cells(i,j).value        
+     end if 
+      
+    case "ObjectType"
+      if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.objectype  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+       
+    case "propertyName"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.propertyname  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+    case "propertyvalue"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.propertyvalue  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+    Case "action"
+    if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.action  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+   Case "Query"
+   if File.Sheets("testcase").cells(i,j).value <>  "" then
+        
+      
+        Project.Variables.Query  = File.Sheets("testcase").cells(i,j).value
+        
+     end if 
+    
+  Case "Function"
+  str= File.Sheets("testcase").cells(i,j).value
+      if File.Sheets("testcase").cells(i,j).value <>  "" then
+      str = File.Sheets("testcase").cells(i,j).value 
+                 select case Str
+                    case  "Action_Click" 
+                     var= Runner.CallMethod("functions.Action_Click")
+                    case  "SimpleParsing" 
+                      set CollWeb= Runner.CallMethod("functions.SimpleParsing")
+                      Log.Message CollWeb.recordcount
+                     case  DB_connect
+                     case "ReadTestdata"
+                     set CollDb =ReadTestdata()
+                     case "comparedata"
+                     
+                        var= Runner.CallMethod("functions.CompareData(CollDb, CollWeb)")
+                     ' var= Runner.CallMethod( CompareData(CollDb, CollWeb)")    
+                     'var= Runner.CallMethod("functions.DBCONNECT(Project.Variables.server, Project.Variables.user_id, project.Variables.Password, _
+                                '  Project.Variables.Query,  project.Variables.location_path))
+                    ' Runner.CallMethod()
+                end select
+                   'str = "(" + Chr(34) + str + Chr(34) + ")"
+       
+      end if 
+'    case else
+    
+        
+  end select 
+Else  'Log.Message File.Sheets("testcase").cells(i,j).value
+End If    
+  next 
+
+Next
+
+File.quit  
+set File= Nothing
+End Sub
+
+
+Sub CreateRecord (RecName)
+  Dim t
+  
+  
+  
+dim mystr , nstr
+if  Project.Variables.VariableExists(RecName) = True then 
+  Project.Variables.RemoveVariable RecName
+  Else  
+end if 
+mystr ="Project.Variables.AddVariable " + chr(34)+ RecName + chr(34) + "," + chr(34) + "Table" +chr(34)
+    Execute mystr 
+   
+'   Rs.Fields.Append "CaseID", adVarChar ,500
+'  Rs.Fields.Append "StudyCode", adVarChar,500
+'  Rs.Fields.Append "StudyType", adVarChar,500
+'  Rs.Fields.Append "Breed", adVarChar,500
+'  Rs.Fields.Append "Diagnosis", adVarChar,500
+'  Rs.Fields.Append "Age" , adVarChar,500
+'  Rs.Fields.Append "Sex", adVarChar,500
+'  Rs.Fields.Append "StageOfDisease", adVarChar,500
+'  Rs.Fields.Append "Neutered Status", adVarChar,500
+'  
+  
+  
+  ' Get a reference to the variable
+  Set t = Project.Variables.VariableByName(RecName)
+  
+  ' Add columns to the table
+  Call t.AddColumn("CaseID")
+  Call t.AddColumn("StudyCode")
+  Call t.AddColumn("StudyType")
+  Call t.AddColumn("Breed")
+  Call t.AddColumn("Diagnosis")
+  Call t.AddColumn("Age")
+  Call t.AddColumn("Sex")
+  Call t.AddColumn("StageOfDisease")
+  Call t.AddColumn("Neutered Status")
+   
+  
+  
+  
+End Sub
+
+
+Sub ClearAll
+  
+Set P = Sys.Browser(Project.Variables.runBrowser).Page(Project.Variables.url)
+  props = Array( "ObjectType", Project.Variables.propertyname)  '"ObjectType", "contentText"
+  values = Array( Project.Variables.objectype, Project.Variables.propertyvalue  )'  PropertyValue)   '"Link", "Cases")  'Project.Variables.propertyvalue
+ Set  L = P.FindChild(props,values,10)
+ 
+ if L.enabled=true then 
+ Execute "L.click"
+ End if
+ Log.Message Project.Variables.objectype + Project.Variables.propertyvalue + " was clicked "
+'Execute MyStr
+
+
+End Sub

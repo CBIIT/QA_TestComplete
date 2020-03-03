@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row1">
+				<Prp name="start time" type="D" value="43874.4477714468"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="43874.4485838657"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="name" type="S" value="LoadFillterWithBreed [Script\functions - Initial]"/>
+				<Prp name="details" type="S" value="{E179533C-93BE-4DC2-A7C2-71E6B2BBDF37}"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="start time" type="D" value="43874.4477695255"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="43874.4477695255"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="name" type="S" value="Breeds"/>
+				<Prp name="details" type="S" value="{C98FFDE3-5118-4955-829E-2B400980972F}"/>
+			</Node>
+			<Node name="row4">
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="name" type="S" value="The element to be run specified in the 'Qa-ValidateBreedSelection' test item failed to run."/>
+				<Prp name="start time" type="D" value="43874.4496993287"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="details" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="4"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="43874.4496993287"/>
+			</Node>
+			<Node name="row5">
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="name" type="S" value="The test item execution has been stopped."/>
+				<Prp name="start time" type="D" value="43874.449699375"/>
+				<Prp name="extended message" type="S" value="&lt;html&gt;&lt;style&gt;&#xA;body {&#xA;  font-family:  Segoe UI, Tahoma, Arial, Helvetica, sans-serif;&#xA;  font-size: 13px;&#xA;  font-weight: normal;&#xA;  margin: 19px;&#xA;  padding: 0;&#xA;}&#xA;p {&#xA;  margin: 20px 0;&#xA;  padding: 0;&#xA;}&#xA;ul {&#xA;  margin: 1ex 0 1ex 2ex;&#xA;  padding: 0;&#xA;}&#xA;li {&#xA;  margin: 1ex 0 0 3ex;&#xA;  padding: 0 0;&#xA;}&#xA;a {&#xA;  color: #0066CC;&#xA;}&#xA;h3 {&#xA;  font-size: 14px;&#xA;  margin: 20px 0 8px 0;&#xA;  padding: 0;&#xA;}&#xA;table {&#xA;  margin: 0;&#xA;  padding: 0;&#xA;  border: 1px solid #909090;&#xA;  border-collapse: collapse;&#xA;}&#xA;.table-border {&#xA;  display: inline-block;&#xA;  border: 1px solid #909090;&#xA;}&#xA;.table-borderless {&#xA;  border: 0px;&#xA;}&#xA;.full-width {&#xA;  width: 100%;&#xA;}&#xA;.table-border.full-width &gt; table {&#xA;  width: 100%;&#xA;}&#xA;td, th {&#xA;  font-size: 14px;&#xA;  text-align: left;&#xA;  vertical-align: middle;&#xA;  padding: 0px 6px 0px 6px;&#xA;}&#xA;td:first-of-type, th:first-of-type {&#xA;  padding-left: 12px;&#xA;}&#xA;td:last-of-type, th:last-of-type {&#xA;  padding-right: 12px;&#xA;}&#xA;td {&#xA;  height: 26px;&#xA;}&#xA;th {&#xA;  font-size: 12px;&#xA;  font-weight: normal;&#xA;  white-space: nowrap;&#xA;  height: 23px;&#xA;  color: #707070;&#xA;  background-color: #F5F6F8;&#xA;}&#xA;table tr:not(:first-child) td {&#xA;  border-top: 1px solid #EEEEEE;&#xA;}&#xA;table tr:not(:first-child) th {&#xA;  border-top: 1px solid #DCDCDC;&#xA;}&#xA;table.table-vertical th {&#xA;  border-right: 1px solid #DCDCDC;&#xA;}&#xA;&lt;/style&gt;&lt;body&gt;The test item execution has been stopped, because an exception occurred and the value of the &quot;Stop on exception&quot; test item's property is &lt;i&gt;Test Item&lt;/i&gt;.&lt;p&gt;&lt;a href=&quot;aqa-help://2017&quot;&gt;Learn More About Stopping Test Execution&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"/>
+				<Prp name="details" type="S" value=""/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="5"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="43874.449699375"/>
+			</Node>
+			<Node name="row3">
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="name" type="S" value="Qa-ValidateBreedSelection [Script\LoadAppAndCheck - loadapp]"/>
+				<Prp name="start time" type="D" value="43874.4487626042"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="details" type="S" value="{1E3CE5E3-EFFC-4DB6-A27D-75DF6308FDE9}"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="3"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="43874.4496994097"/>
+			</Node>
+			<Node name="row2">
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="name" type="S" value="LoadAppFilterBreed [Script\functions - loadapp]"/>
+				<Prp name="start time" type="D" value="43874.4485840278"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="details" type="S" value="{5F3E0FF2-952A-4996-BC41-0E64D4058701}"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="end time" type="D" value="43874.4487623958"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

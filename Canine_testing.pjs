@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root signature="{24B6FA0B-0143-461A-9758-AEB9E9A9428B}" version="14.0" key="{D58BECBF-DD33-4323-9412-D972378114FD}">
+	<children>
+		<child name="Automated Testing" key="{F550CB35-C886-4793-8F27-CF8EF1503394}" path="C:\Users\lollal\Documents\TestComplete 14 Projects\Canine_testing\Automated Testing.mds" />
+	</children>
+	<testItems key="{7C8A83C3-6B00-4698-A5FF-755E1F3BD02A}">
+		<children>
+			<testItem key="{F550CB35-C886-4793-8F27-CF8EF1503394}" enabled="True" timeout="0" stopOnError="True" description="" />
+		</children>
+	</testItems>
+	<variables key="{567BAD29-CF41-45F6-A0D1-C783B0E65F1D}">
+		<data Version="3" />
+	</variables>
+	<analysis key="{6A5D78F6-3FF0-4334-A70B-CD51D8C0C533}" />
+	<scc key="{00000000-0000-0000-0000-000000000000}" name="">
+		<data />
+	</scc>
+	<extender key="{1A3FC97E-9A66-4716-B166-35D10B4146E0}">
+		<CrossBrowserTesting Enable="True" />
+	</extender>
+</Root>

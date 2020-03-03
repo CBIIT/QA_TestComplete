@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="projects">
+			<Node name="project0">
+				<Node name="tests">
+					<Node name="test1">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="name" type="S" value="LoadAppFilterBreed"/>
+						<Prp name="starttime" type="D" value="43874.4508374074"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewAxADEAMQBDAEEAOQAzADkALQAyAEUAQQAxAC0ANAA2ADYARgAtAEEAMwAyAEEALQA3ADgARABEADEAOABCADYARgA4AEMARgB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="12842"/>
+						<Prp name="durationwithoutchildren" type="I" value="12842"/>
+						<Prp name="status" type="I" value="0"/>
+					</Node>
+					<Node name="test2">
+						<Node name="warnings"/>
+						<Node name="errors">
+							<Node name="error2">
+								<Prp name="msg" type="S" value="The element to be run specified in the 'Qa-ValidateBreedSelection' test item failed to run."/>
+							</Node>
+							<Node name="error0">
+								<Prp name="msg" type="S" value="Sorry, we couldn't find C:\Users\lollal\Testcomplete\DataForTestCase\ICDC_dataClinicalTrialsBreed.xlsx. Is it possible it was moved, renamed or deleted?"/>
+							</Node>
+							<Node name="error3">
+								<Prp name="msg" type="S" value="The test item execution has been stopped."/>
+							</Node>
+							<Node name="error1">
+								<Prp name="msg" type="S" value="The script execution was interrupted."/>
+							</Node>
+						</Node>
+						<Prp name="name" type="S" value="Qa-ValidateBreedSelection"/>
+						<Prp name="starttime" type="D" value="43874.4509860532"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewBCADMARgBBADYANgA4ADMALQAyADEAQQA5AC0ANABBAEQAQQAtADgANgA2ADcALQBEADgAMAA5ADQAOAA2ADQAQwBDAEEAQQB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="167048"/>
+						<Prp name="durationwithoutchildren" type="I" value="167048"/>
+						<Prp name="status" type="I" value="2"/>
+					</Node>
+					<Node name="test0">
+						<Node name="warnings"/>
+						<Node name="errors"/>
+						<Prp name="name" type="S" value="LoadFillterWithBreed"/>
+						<Prp name="starttime" type="D" value="43874.4507825463"/>
+						<Prp name="executionpoint" type="S" value="executionpoint://ewA5AEEARgA3ADUAMQA4ADgALQBBADkANQAxAC0ANABFADgAOAAtAEIAMwA3ADAALQA0AEEANQA0ADMARgBDAEUARAA5ADUAMAB9AC8AewAwADAAMAAwADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwADAAMAAwADAAMAAwADAAMAB9AC8AZQBtAHAAdAB5AC8AZQBtAHAAdAB5AA=="/>
+						<Prp name="duration" type="I" value="4740"/>
+						<Prp name="durationwithoutchildren" type="I" value="4740"/>
+						<Prp name="status" type="I" value="0"/>
+					</Node>
+				</Node>
+				<Prp name="name" type="S" value="Automated Testing"/>
+				<Prp name="warningtests" type="I" value="0"/>
+				<Prp name="starttime" type="D" value="43874.4507825463"/>
+				<Prp name="duration" type="I" value="184630"/>
+				<Prp name="incompletedtests" type="I" value="0"/>
+				<Prp name="failedtests" type="I" value="1"/>
+			</Node>
+		</Node>
+		<Prp name="host" type="S" value="NCI-02150368-L"/>
+		<Prp name="warningtests" type="I" value="0"/>
+		<Prp name="testname" type="S" value="Automated Testing"/>
+		<Prp name="user" type="S" value="radhakrishnang2"/>
+		<Prp name="executionstatus" type="I" value="2"/>
+		<Prp name="starttime" type="D" value="43874.4507790972"/>
+		<Prp name="name" type="S" value="Canine_testing"/>
+		<Prp name="key" type="S" value="{FA248316-FB63-44A7-84EC-BFE5B1B74A0E}"/>
+		<Prp name="tests" type="I" value="3"/>
+		<Prp name="incompletedtests" type="I" value="0"/>
+		<Prp name="stop" type="D" value="43874.4529293519"/>
+		<Prp name="failedtests" type="I" value="1"/>
+	</Node>
+</Nodes>

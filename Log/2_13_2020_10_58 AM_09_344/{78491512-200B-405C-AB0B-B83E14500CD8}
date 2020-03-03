@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="log data">
+			<Node name="row2">
+				<Prp name="name" type="S" value="The element to be run specified in the 'LoadFillterWithBreed' test item failed to run."/>
+				<Prp name="details" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="start time" type="D" value="43874.4574698148"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="2"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="43874.4574698148"/>
+			</Node>
+			<Node name="row0">
+				<Prp name="name" type="S" value="Breeds"/>
+				<Prp name="details" type="S" value="{8AD32C32-899A-49D2-BD94-08B0F04CA8A3}"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="start time" type="D" value="43874.457065081"/>
+				<Prp name="status" type="I" value="0"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="0"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="43874.457065081"/>
+			</Node>
+			<Node name="row4">
+				<Prp name="name" type="S" value="The execution process was interrupted."/>
+				<Prp name="details" type="S" value=""/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="start time" type="D" value="43874.4576896181"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="4"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="43874.4576896181"/>
+			</Node>
+			<Node name="row3">
+				<Prp name="name" type="S" value="LoadAppFilterBreed [Script\functions - loadapp]"/>
+				<Prp name="details" type="S" value="{373FB39B-DB5E-4500-AC8F-AE626C014772}"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="start time" type="D" value="43874.4575334375"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="3"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="43874.4576896181"/>
+			</Node>
+			<Node name="row1">
+				<Prp name="name" type="S" value="LoadFillterWithBreed [Script\functions - Initial]"/>
+				<Prp name="details" type="S" value="{A1AA3D87-3DE0-419C-86B8-38F5E9C5E719}"/>
+				<Prp name="ownerid" type="I" value="-1"/>
+				<Prp name="start time" type="D" value="43874.4570675347"/>
+				<Prp name="status" type="I" value="2"/>
+				<Prp name="testdata item" type="B" value="0"/>
+				<Prp name="index" type="I" value="1"/>
+				<Prp name="extended message" type="S" value=""/>
+				<Prp name="end time" type="D" value="43874.4575330556"/>
+			</Node>
+		</Node>
+	</Node>
+</Nodes>

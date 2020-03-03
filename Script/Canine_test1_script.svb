@@ -1,0 +1,19 @@
+﻿Sub Canine_Test1_script()
+  'Opens the specified URL in a running instance of the specified browser.
+  'dim brwser 
+ ' brwser=
+  Browsers.Item(btChrome).Run "https://caninecommons.cancer.gov/#/home"
+  'Call Browsers.Item(btChrome).Navigate("https://caninecommons.cancer.gov/#/home")
+  'Clicks the 'cases' link.
+  Call Aliases.browser.pageIcdc.cases.Click
+  'Checks whether the 'contentText' property of the Aliases.browser.pageIcdc.nav.textnode object equals 'Study'.
+  Call aqObject.CheckProperty(Aliases.browser.pageIcdc.nav.textnode, "contentText", cmpEqual, "Study")
+  'Checks whether the 'contentText' property of the Aliases.browser.pageIcdc.textnode object equals '2'.
+  Call aqObject.CheckProperty(Aliases.browser.pageIcdc.textnode, "contentText", cmpEqual, "2")
+  'Checks whether the 'contentText' property of the Aliases.browser.pageIcdc.textnode2 object equals '144'.
+  Call aqObject.CheckProperty(Aliases.browser.pageIcdc.textnode2, "contentText", cmpEqual, "144")
+  'Checks whether the 'contentText' property of the Aliases.browser.pageIcdc.textnode22 object equals '136'.
+  Call aqObject.CheckProperty(Aliases.browser.pageIcdc.textnode22, "contentText", cmpEqual, "136")
+  'Checks whether the 'contentText' property of the Aliases.browser.pageIcdc.textnode3 object equals '331'.
+  Call aqObject.CheckProperty(Aliases.browser.pageIcdc.textnode3, "contentText", cmpEqual, "331")
+End Sub

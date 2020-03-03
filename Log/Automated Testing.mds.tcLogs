@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="folders"/>
+		<Node name="logs">
+			<Node name="log idx=0000">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43874.4413853241"/>
+				<Prp name="description" type="S" value="Automated Testing"/>
+				<Prp name="key" type="S" value="{5B5CCDD1-E94F-407D-9B59-E81EB991E394}"/>
+				<Prp name="nameofroot" type="S" value="Automated Testing"/>
+				<Prp name="relpath" type="S" value="2_13_2020_10_35 AM_35_692\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0001">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43874.4477642245"/>
+				<Prp name="description" type="S" value="Automated Testing"/>
+				<Prp name="key" type="S" value="{6FFF7A6A-603A-4DB3-A573-8619152A3FC7}"/>
+				<Prp name="nameofroot" type="S" value="Automated Testing"/>
+				<Prp name="relpath" type="S" value="2_13_2020_10_44 AM_46_829\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0002">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43874.4507715509"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{BB5C1F3A-05B9-4245-8CB5-F25B7911F598}"/>
+				<Prp name="nameofroot" type="S" value="Automated Testing"/>
+				<Prp name="relpath" type="S" value="2_13_2020_10_49 AM_06_662\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0003">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43874.4570525926"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{C9439041-0790-4DE1-BADE-BC4DAE018AFE}"/>
+				<Prp name="nameofroot" type="S" value="Automated Testing"/>
+				<Prp name="relpath" type="S" value="2_13_2020_10_58 AM_09_344\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0004">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43874.4586259259"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{DBE2910D-270A-4E97-8E8D-CF3E601DADC5}"/>
+				<Prp name="nameofroot" type="S" value="Automated Testing"/>
+				<Prp name="relpath" type="S" value="2_13_2020_11_00 AM_25_281\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0005">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43874.4607552662"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{F5893395-74CE-4347-95C1-364EA2105849}"/>
+				<Prp name="nameofroot" type="S" value="Automated Testing"/>
+				<Prp name="relpath" type="S" value="2_13_2020_11_03 AM_29_256\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0006">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43874.4628109144"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{B316B0C8-A28E-4920-A281-FCF2E133D5A3}"/>
+				<Prp name="nameofroot" type="S" value="Automated Testing"/>
+				<Prp name="relpath" type="S" value="2_13_2020_11_06 AM_26_863\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+			<Node name="log idx=0007">
+				<Prp name="caption" type="S" value=""/>
+				<Prp name="datetime" type="D" value="43875.3879515278"/>
+				<Prp name="description" type="S" value=""/>
+				<Prp name="key" type="S" value="{33D1A770-BC12-4EA7-A46D-BF82A0603CB3}"/>
+				<Prp name="nameofroot" type="S" value="Automated Testing"/>
+				<Prp name="relpath" type="S" value="2_14_2020_9_18 AM_39_12\Description.tcLog"/>
+				<Prp name="status" type="I" value="2"/>
+			</Node>
+		</Node>
+		<Prp name="signature" type="S" value="{681DCC69-A39F-4C4D-8E7D-B2D9362FAF4F}"/>
+		<Prp name="version" type="S" value="11.0"/>
+	</Node>
+</Nodes>
