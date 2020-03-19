@@ -35,21 +35,21 @@
 				<testParameters />
 				<children />
 			</testItem>
-			<testItem name="Breeds" key="{9F920AD7-3BA5-43F8-B9D3-6CB7193857F5}" group="True" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+			<testItem name="Breeds" key="{9F920AD7-3BA5-43F8-B9D3-6CB7193857F5}" group="True" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 				<testParameters />
 				<children />
 			</testItem>
-			<testItem name="LoadFillterWithBreed" key="{CA0615FA-1932-4C68-9B2D-EAF5D7002C80}" group="False" enabled="True" testMoniker="{0B358746-8CB0-42AA-BB67-BB4C3F1908D0}Initial" count="1" timeout="0" stopOnError="0" stopOnException="2" description="" tmsData="" testCase="True">
+			<testItem name="LoadFillterWithBreed" key="{CA0615FA-1932-4C68-9B2D-EAF5D7002C80}" group="False" enabled="False" testMoniker="{0B358746-8CB0-42AA-BB67-BB4C3F1908D0}Initial" count="1" timeout="0" stopOnError="0" stopOnException="2" description="" tmsData="" testCase="True">
 				<testParameters>
 					<param0 name="xlFileName" type="3" localVarName="" varType="8" value="C:\Users\radhakrishnang2\Desktop\TestComplete\TestCases\Test3_clinicalTrialsBreed.xlsx" />
 				</testParameters>
 				<children />
 			</testItem>
-			<testItem name="LoadAppFilterBreed" key="{7113BE55-D2AB-4EA5-BA51-03CEDAD1089C}" group="False" enabled="True" testMoniker="{0B358746-8CB0-42AA-BB67-BB4C3F1908D0}loadapp" count="1" timeout="0" stopOnError="0" stopOnException="2" description="" tmsData="" testCase="True">
+			<testItem name="LoadAppFilterBreed" key="{7113BE55-D2AB-4EA5-BA51-03CEDAD1089C}" group="False" enabled="False" testMoniker="{0B358746-8CB0-42AA-BB67-BB4C3F1908D0}loadapp" count="1" timeout="0" stopOnError="0" stopOnException="2" description="" tmsData="" testCase="True">
 				<testParameters />
 				<children />
 			</testItem>
-			<testItem name="Qa-ValidateBreedSelection" key="{2E45B465-D595-4B5A-9345-D4476481CE62}" group="False" enabled="True" testMoniker="{D7B664BC-0AA2-44AF-B713-5E658CB0B7F8}loadapp" count="1" timeout="0" stopOnError="0" stopOnException="2" description="" tmsData="" testCase="True">
+			<testItem name="Qa-ValidateBreedSelection" key="{2E45B465-D595-4B5A-9345-D4476481CE62}" group="False" enabled="False" testMoniker="{D7B664BC-0AA2-44AF-B713-5E658CB0B7F8}loadapp" count="1" timeout="0" stopOnError="0" stopOnException="2" description="" tmsData="" testCase="True">
 				<testParameters />
 				<children />
 			</testItem>
@@ -81,7 +81,7 @@
 				</testParameters>
 				<children />
 			</testItem>
-			<testItem name="OPenBrowser" key="{37A54C2C-E422-4EAE-94A9-7C65ED17A8B8}" group="False" enabled="False" testMoniker="{0B358746-8CB0-42AA-BB67-BB4C3F1908D0}loadapp" count="1" timeout="0" stopOnError="0" stopOnException="2" description="" tmsData="" testCase="True">
+			<testItem name="OPenBrowser" key="{37A54C2C-E422-4EAE-94A9-7C65ED17A8B8}" group="False" enabled="True" testMoniker="{0B358746-8CB0-42AA-BB67-BB4C3F1908D0}loadapp" count="1" timeout="0" stopOnError="0" stopOnException="2" description="" tmsData="" testCase="True">
 				<testParameters />
 				<children />
 			</testItem>
@@ -104,6 +104,10 @@
 				<children />
 			</testItem>
 			<testItem name="Testcase1_trial" key="{5B3DB276-0D2C-4C4F-BDFB-9FFEE7D85F9A}" group="False" enabled="False" testMoniker="{D7B664BC-0AA2-44AF-B713-5E658CB0B7F8}loadapp" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
+				<testParameters />
+				<children />
+			</testItem>
+			<testItem name="Test7" key="{7A52917E-E078-473F-A464-AA05292268B6}" group="False" enabled="True" testMoniker="KDT\{7778E781-391A-47DA-A620-13C881B9BD41}" count="1" timeout="0" stopOnError="3" stopOnException="2" description="" tmsData="" testCase="True">
 				<testParameters />
 				<children />
 			</testItem>
